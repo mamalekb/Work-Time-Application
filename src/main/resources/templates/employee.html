@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout(~{::.container})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container">
+    <form style="width: 400px; margin: auto" th:object="${employee}" th:action="@{/employees/save}" method="post">
+        <div class="uk-margin">
+            <label>Imię</label>
+            <input th:field="*{name}" type="text" class="uk-input">
+        </div>
+        <div class="uk-margin">
+            <label>Nazwisko</label>
+            <input th:field="*{surname}" type="text" class="uk-input">
+        </div>
+        <div class="uk-margin">
+            <label>Login</label>
+            <input th:field="*{login}" type="text" class="uk-input">
+        </div>
+        <div class="uk-margin">
+            <label>Oddział</label>
+            <input th:field="*{department}" type="text" class="uk-input">
+        </div>
+        <div class="uk-margin">
+            <label>Stanowisko</label>
+            <input th:field="*{position}" type="text" class="uk-input">
+        </div>
+        <div class="uk-margin">
+            <label>Wiek</label>
+            <input th:field="*{age}" type="number" step="1" class="uk-input">
+        </div>
+        <div class="uk-margin">
+            <label>Adres zamieszkania</label>
+            <input th:field="*{adress}" type="text" class="uk-input">
+        </div>
+        <div class="uk-margin">
+            <label>Telefon</label>
+            <input th:field="*{telephone}" type="number" step="1" class="uk-input">
+        </div>
+        <div class="uk-margin">
+        <label>Data zatrudnienia</label>
+        <input th:field="*{firstWorkday}" type="date" step="1" class="uk-input">
+    </div>
+        <div class="uk-margin">
+            <label>Data zakończenia pracy</label>
+            <input th:field="*{lastWorkday}" type="date" step="1" class="uk-input">
+        </div>
+
+        <!--<div class="uk-margin">
+            <label>Aktywność</label>
+            <input th:field="*{active}" type="checkbox"  class="uk-checkbox">
+        </div>-->
+
+        <input th:field="*{id}" type="number" hidden>
+        <a th:href="@{/employees}"><input type="button" value="Anuluj" class="uk-button uk-button-danger"></a>
+        <input type="submit" class="uk-button uk-button-primary" value="Zapisz">
+
+    </form>
+</div>
+
+</body>
+</html>
