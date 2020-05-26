@@ -17,8 +17,23 @@
             <input th:field="*{surname}" type="text" class="uk-input">
         </div>
         <div class="uk-margin">
-            <label>Login</label>
-            <input th:field="*{login}" type="text" class="uk-input">
+            <label>Data urodzenia</label>
+            <input th:field="*{dateOfBirth}" type="date"  class="uk-input">
+        </div>
+        <div class="uk-margin">
+            <label>Płeć</label>
+            <select th:field="*{sex}" type="text"  class="uk-select" name="sex">
+                <option th:value="Kobieta">Kobieta</option>
+                <option th:value="Mężczyzna">Mężczyzna</option>
+            </select>
+        </div>
+        <div class="uk-margin">
+        <label>Login</label>
+        <input th:field="*{login}" type="text" class="uk-input">
+    </div>
+        <div class="uk-margin">
+            <label>E-mail</label>
+            <input th:field="*{email}" type="text" class="uk-input">
         </div>
         <div class="uk-margin">
             <label>Oddział</label>
@@ -28,30 +43,30 @@
             <label>Stanowisko</label>
             <input th:field="*{position}" type="text" class="uk-input">
         </div>
-        <div class="uk-margin">
-            <label>Wiek</label>
-            <input th:field="*{age}" type="number" step="1" class="uk-input">
-        </div>
+
         <div class="uk-margin">
             <label>Adres zamieszkania</label>
             <input th:field="*{adress}" type="text" class="uk-input">
         </div>
         <div class="uk-margin">
             <label>Telefon</label>
-            <input th:field="*{telephone}" type="number" step="1" class="uk-input">
+            <input th:field="*{telephone}" type="number" class="uk-input">
         </div>
         <div class="uk-margin">
         <label>Data zatrudnienia</label>
-        <input th:field="*{firstWorkday}" type="date" step="1" class="uk-input">
+        <input th:field="*{firstWorkday}" type="date"  class="uk-input" >
     </div>
         <div class="uk-margin">
-            <label>Data zakończenia pracy</label>
-            <input th:field="*{lastWorkday}" type="date" step="1" class="uk-input">
+        <label>Data zakończenia pracy</label>
+        <input th:field="*{lastWorkday}" type="date" class="uk-input">
+    </div>
+        <div class="uk-margin">
+            <label>Aktualnie zatrudniony</label>
+            <input th:field="*{working}" type="checkbox" class="uk-checkbox">
         </div>
-
-        <!--<div class="uk-margin">
-            <label>Aktywność</label>
-            <input th:field="*{active}" type="checkbox"  class="uk-checkbox">
+<!--        <div class="uk-margin">
+            <label>Dodaj zdjęcie</label>
+            <input th:field="*{picture}" type="image" class="uk-image">
         </div>-->
 
         <input th:field="*{id}" type="number" hidden>

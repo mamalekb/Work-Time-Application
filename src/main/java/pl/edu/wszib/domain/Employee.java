@@ -1,19 +1,31 @@
 package pl.edu.wszib.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.awt.*;
 import java.util.Date;
 
 public class Employee {
     private long id;
     private String name;
     private String surname;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date dateOfBirth;
+    private String sex;
     private String login;
+    private String email;
     private String department;
     private String position;
-    private int age;
     private String adress;
     private String telephone;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date firstWorkday;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date lastWorkday;
+    private Image picture;
+    private boolean working;
+
+
 
     public long getId() {
         return id;
@@ -63,12 +75,28 @@ public class Employee {
         this.position = position;
     }
 
-    public int getAge() {
-        return age;
+    public String getSex() {
+        return sex;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getAdress() {
@@ -101,6 +129,22 @@ public class Employee {
 
     public void setLastWorkday(Date lastWorkday) {
         this.lastWorkday = lastWorkday;
+    }
+
+    public Image getPicture() {
+        return picture;
+    }
+
+    public void setPicture(Image picture) {
+        this.picture = picture;
+    }
+
+    public boolean isWorking() {
+        return working;
+    }
+
+    public void setWorking(boolean working) {
+        this.working = working;
     }
 }
 

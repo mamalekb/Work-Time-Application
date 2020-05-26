@@ -26,6 +26,13 @@ public class EmployeeController {
         return "employees";
     }
 
+    @GetMapping("details")
+    public String details() {
+        return "details";
+    }
+
+
+
     @GetMapping("employees/remove/{id}")
     public String removeEmployee(@PathVariable Long id) {
         employeeDao.removeEmployee(id);
@@ -51,4 +58,34 @@ public class EmployeeController {
         return "employee";
     }
 
+/*    @GetMapping("employees")
+    public String showEmployee (, Model model) {
+        Employee employee = employeeDao.getById(id);
+        model.addAttribute("employee", employee);
+        return "details";
+    }*/
+    @GetMapping("details/{id}")
+    public String employees(@PathVariable Long id, Model model) {
+        model.addAttribute("employees", employeeDao.getEmployees());
+        return "details";
+    }
+
+    /*public void validate(Pacjent pacjent, BindingResult bindingResult) {
+        if(pacjent.getImie()==null|| pacjent.getImie().isEmpty()) {
+            bindingResult.addError(new ObjectError("imie", "Musisz podać imię"));
+        }
+        if(pacjent.getNazwisko()==null|| pacjent.getNazwisko().isEmpty()) {
+            bindingResult.addError(new ObjectError("nazwisko", "Musisz podać nazwisko"));
+        }
+        if(pacjent.getWiek()<0) {
+            bindingResult.addError(new ObjectError("wiek", "Wiek nie może być ujemny"));
+        }
+            *//*if(pacjent.getTermin()==null|| pacjent.getTermin().()) {
+                bindingResult.addError(new ObjectError("termin", "Musisz wskazać termin"));
+            }*//*
+
+
+
+
+    }*/
 }

@@ -49,14 +49,18 @@ public class EmployeeDaoImpl implements EmployeeDao {
         Employee employee = new Employee();
         employee.setName("Jan");
         employee.setSurname("Kowalski");
-        employee.setLogin("jkowalski@gmail.com");
+/*        employee.setDateOfBirth("1988-05-22");*/
+        employee.setSex("Mężczyzna");
+        employee.setLogin("jkowalski");
+        employee.setEmail("jkowalski@gmail.com");
         employee.setDepartment("Oddział Logistyki");
         employee.setPosition("stażysta");
-        employee.setAge(26);
         employee.setAdress("Kraków, ul. Królewny Sniezki 15");
         employee.setTelephone("506-332-882");
 /*        employee.setFirstWorkday(2019);
         employee.setLastWorkday();*/
+/*        employee.setPicture();*/
+        employee.setWorking(true);
         saveEmployee(employee);
     }
 }

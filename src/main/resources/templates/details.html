@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout(~{::.container})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container">
+    <h2 class="uk-heading-line">Szczegółowe informacje o pracowniku</h2>
+    <div class="image-container" style="width: 20%; flex-direction: row; display: flex; float: left">
+        <div style="width: 160px; height: 160px">
+            <img src="https://lh3.googleusercontent.com/proxy/7vXunkLekIlGcQfHxnucacD0uxACXnYAOs7CDSRkX3jF8EhbcC7uJUWAxcRxFg8wvudY7iPDjTZ7Xuq2IutoP07PcMOhVwW9bBMhFLwKW8enDPfT9G9UhFlEbpZVO61uYXMwkwvpH86ZsDjYOg"
+                 alt="employee">
+
+        </div>
+    </div>
+    <div class="detail-container" style="width: 70%; flex-direction: row; display: flex; float: left">
+            <h2 class="uk-text-center uk-card-title"></h2>
+            <dl class="uk-description-list uk-description-list-divider" th:each="employee : ${employees}"
+                style="/*max-width: 800px; */margin: 10px auto; margin-left: 50px; margin-right: 50px">
+                <dt>ID</dt>
+                <dd></dd>
+                <dt >Imię</dt>
+                <dd th:text="${employee.name}" type="text" ></dd>
+                <dt>Nazwisko</dt>
+                <dd th:text="${employee.surname}" type="text"></dd>
+                <dt>Data urodzenia</dt>
+                <dd th:text="${#calendars.format(employee.dateOfBirth, 'yyyy-MM-dd')}"></dd>
+                <dt>Płeć</dt>
+                <dd th:text="${employee.sex}" type="text"></dd>
+                <dt>Login</dt>
+                <dd th:text="${employee.login}" type="text"></dd>
+                <dt>E-mail</dt>
+                <dd th:text="${employee.email}" type="text"></dd>
+                <dt>Oddział</dt>
+                <dd th:text="${employee.department}" type="text"></dd>
+                <dt>Stanowisko</dt>
+                <dd th:text="${employee.position}" type="text"></dd>
+                <dt>adres zamieszkania</dt>
+                <dd th:text="${employee.adress}" type="text"></dd>
+                <dt>Telefon kontaktowy</dt>
+                <dd th:text="${employee.telephone}" type="number"></dd>
+                <dt>Data rozpoczęcia pracy</dt>
+                <dd th:text="${#calendars.format(employee.firstWorkday, 'yyyy-MM-dd')}" type="date"></dd>
+                <dt>Data zakończenia pracy</dt>
+                <dd th:text="${#calendars.format(employee.lastWorkday, 'yyyy-MM-dd')}" type="date"></dd>
+                <dt>Pracujący</dt>
+                <dd><span th:uk-icon="${employee.working} ? 'check' : 'close'"></span></dd>
+                <dt></dt>
+                <dd>
+                    <input th:field="*{id}" type="number" hidden>
+                    <a th:href="@{/employees}"><input type="button" value="Powrót" class="uk-button uk-button-default"></a>
+                </dd>
+            </dl>
+
+    </div>
+
+</div>
+</body>
+</html>
