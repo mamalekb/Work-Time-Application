@@ -1,8 +1,10 @@
 package pl.edu.wszib.controller;
 
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,16 +22,15 @@ public class EmployeeController {
         return "welcome";
     }
 
+
+
     @GetMapping("employees")
     public String employees(Model model) {
         model.addAttribute("employees", employeeDao.getEmployees());
         return "employees";
     }
 
-    @GetMapping("details")
-    public String details() {
-        return "details";
-    }
+
 
 
 
@@ -58,17 +59,30 @@ public class EmployeeController {
         return "employee";
     }
 
-/*    @GetMapping("employees")
-    public String showEmployee (, Model model) {
-        Employee employee = employeeDao.getById(id);
-        model.addAttribute("employee", employee);
-        return "details";
-    }*/
+    /*    @GetMapping("employees")
+        public String showEmployee (, Model model) {
+            Employee employee = employeeDao.getById(id);
+            model.addAttribute("employee", employee);
+            return "details";
+        }*/
+
+    //details view
+    @GetMapping("details")
+    public String details() {return "details";    }
+
     @GetMapping("details/{id}")
     public String employees(@PathVariable Long id, Model model) {
         model.addAttribute("employees", employeeDao.getEmployees());
         return "details";
     }
+
+
+    //vacations view
+    @GetMapping("vacations")
+    public String vacations() {
+        return "vacations";
+    }
+
 
     /*public void validate(Pacjent pacjent, BindingResult bindingResult) {
         if(pacjent.getImie()==null|| pacjent.getImie().isEmpty()) {
@@ -85,7 +99,11 @@ public class EmployeeController {
             }*//*
 
 
+    }
 
 
     }*/
+
+
+
 }

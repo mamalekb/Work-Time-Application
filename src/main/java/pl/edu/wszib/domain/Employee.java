@@ -2,13 +2,26 @@ package pl.edu.wszib.domain;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Past;
 import java.awt.*;
 import java.util.Date;
 
+@Entity
+@Table(name="Employees")
 public class Employee {
+
+    @Id
+    @GeneratedValue
+    @Column
     private long id;
+
+    @NotEmpty
     private String name;
+    @NotEmpty
     private String surname;
+    @Past
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateOfBirth;
     private String sex;
@@ -22,10 +35,11 @@ public class Employee {
     private Date firstWorkday;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date lastWorkday;
-    private Image picture;
+    private int picture; //do poprawy
     private boolean working;
 
-
+    public Employee() {
+    }
 
     public long getId() {
         return id;
@@ -131,13 +145,13 @@ public class Employee {
         this.lastWorkday = lastWorkday;
     }
 
-    public Image getPicture() {
+    public int getPicture() {
         return picture;
-    }
+    } //do poprawy
 
-    public void setPicture(Image picture) {
+    public void setPicture(int picture) {
         this.picture = picture;
-    }
+    } //do poprawy
 
     public boolean isWorking() {
         return working;
