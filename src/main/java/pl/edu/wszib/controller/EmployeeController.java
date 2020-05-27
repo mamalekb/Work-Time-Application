@@ -8,14 +8,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import pl.edu.wszib.dao.EmployeeDao;
+
 import pl.edu.wszib.domain.Employee;
+import pl.edu.wszib.service.EmployeeService;
 
 @Controller
 public class EmployeeController {
 
     @Autowired
-    private EmployeeDao employeeDao;
+    private EmployeeService employeeService;
 
     @GetMapping
     public String login() {
@@ -26,7 +27,7 @@ public class EmployeeController {
 
     @GetMapping("employees")
     public String employees(Model model) {
-        model.addAttribute("employees", employeeDao.getEmployees());
+        model.addAttribute("employees", employeeService.getEmployees());
         return "employees";
     }
 
@@ -36,7 +37,7 @@ public class EmployeeController {
 
     @GetMapping("employees/remove/{id}")
     public String removeEmployee(@PathVariable Long id) {
-        employeeDao.removeEmployee(id);
+        employeeService.removeEmployee(id);
         return "redirect:/employees";
     }
 
@@ -48,13 +49,13 @@ public class EmployeeController {
 
     @PostMapping("employees/save")
     public String saveEmployee(Employee employee) {
-        employeeDao.saveEmployee(employee);
+        employeeService.saveEmployee(employee);
         return "redirect:/employees";
     }
 
     @GetMapping("employees/edit/{id}")
     public String editEmployee(@PathVariable Long id, Model model) {
-        Employee employee = employeeDao.getById(id);
+        Employee employee = employeeService.getById(id);
         model.addAttribute("employee", employee);
         return "employee";
     }
@@ -72,7 +73,7 @@ public class EmployeeController {
 
     @GetMapping("details/{id}")
     public String employees(@PathVariable Long id, Model model) {
-        model.addAttribute("employees", employeeDao.getEmployees());
+        model.addAttribute("employees", employeeService.getEmployees());
         return "details";
     }
 

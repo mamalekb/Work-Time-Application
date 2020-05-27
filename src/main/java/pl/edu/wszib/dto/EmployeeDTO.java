@@ -1,21 +1,18 @@
-package pl.edu.wszib.domain;
+package pl.edu.wszib.dto;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Past;
-import java.awt.*;
 import java.util.Date;
 
-@Entity
-@Table(name="Employees")
-public class Employee {
+public class EmployeeDTO {
+    long id;
 
-    @Id
-    @GeneratedValue
-    @Column
-    private long id;
+
 
     @NotEmpty
     private String name;
@@ -37,9 +34,6 @@ public class Employee {
     private Date lastWorkday;
     private int picture; //do poprawy
     private boolean working;
-
-    public Employee() {
-    }
 
     public long getId() {
         return id;
@@ -65,12 +59,36 @@ public class Employee {
         this.surname = surname;
     }
 
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
     public String getLogin() {
         return login;
     }
 
     public void setLogin(String login) {
         this.login = login;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getDepartment() {
@@ -87,30 +105,6 @@ public class Employee {
 
     public void setPosition(String position) {
         this.position = position;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getAdress() {
@@ -147,11 +141,11 @@ public class Employee {
 
     public int getPicture() {
         return picture;
-    } //do poprawy
+    }
 
     public void setPicture(int picture) {
         this.picture = picture;
-    } //do poprawy
+    }
 
     public boolean isWorking() {
         return working;
@@ -160,9 +154,4 @@ public class Employee {
     public void setWorking(boolean working) {
         this.working = working;
     }
-
-
-
-
 }
-

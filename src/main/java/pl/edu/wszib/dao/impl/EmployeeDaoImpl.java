@@ -1,13 +1,16 @@
+/*
 package pl.edu.wszib.dao.impl;
 
 import org.springframework.stereotype.Repository;
 import pl.edu.wszib.dao.EmployeeDao;
 import pl.edu.wszib.domain.Employee;
+import pl.edu.wszib.dto.EmployeeDTO;
+import pl.edu.wszib.service.EmployeeService;
 
 import java.util.*;
 
 @Repository
-public class EmployeeDaoImpl implements EmployeeDao {
+public class EmployeeDaoImpl implements EmployeeService {
     private Map<Long, Employee> employeeMap;
     private static Long id = 1L;
 
@@ -17,7 +20,40 @@ public class EmployeeDaoImpl implements EmployeeDao {
     }
 
 
+    @Override
+    public List<EmployeeDTO> listEmployeeDTO() {
+        return null;
+    }
 
+    @Override
+    public EmployeeDTO getEmployeeDTO(Long id) {
+        return null;
+    }
+
+    @Override
+    public void removeEmployeeDTO(Long id) {
+
+    }
+
+    @Override
+    public void saveEmployeeDTO(Employee employee) {
+
+    }
+
+    @Override
+    public EmployeeDTO createEmployee(EmployeeDTO employee) {
+        return null;
+    }
+
+    @Override
+    public EmployeeDTO updateEmployee(EmployeeDTO employee) {
+        return null;
+    }
+
+    @Override
+    public List<Employee> getEmployees() {
+        return null;
+    }
 
     @Override
     public void saveEmployee(Employee employee) {
@@ -42,7 +78,10 @@ public class EmployeeDaoImpl implements EmployeeDao {
         Employee employee = new Employee();
         employee.setName("Jan");
         employee.setSurname("Kowalski");
-        /*employee.setDateOfBirth("1988-05-22");*/
+*/
+/*employee.setDateOfBirth("1988-05-22");*//*
+
+
 
         employee.setSex("Mężczyzna");
         employee.setLogin("jkowalski");
@@ -51,16 +90,21 @@ public class EmployeeDaoImpl implements EmployeeDao {
         employee.setPosition("stażysta");
         employee.setAdress("Kraków, ul. Królewny Sniezki 15");
         employee.setTelephone("506-332-882");
+*/
 /*        employee.setFirstWorkday(2019);
         employee.setLastWorkday();
 
-        employee.setPicture();*/
+        employee.setPicture();*//*
+
+
 
         employee.setWorking(true);
         saveEmployee(employee);
     }
 
-    @Override
+
+}*/
+/*@Override
     public <S extends Employee> S save(S s) {
         return null;
     }
@@ -98,7 +142,8 @@ public class EmployeeDaoImpl implements EmployeeDao {
     @Override
     public List<Employee> getEmployees() {
         return new ArrayList<>(employeeMap.values());
-    }
-}
+    }*//*
 
 
+
+*/

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.edu.wszib.dao.EmployeeDao;
 import pl.edu.wszib.domain.Employee;
+import pl.edu.wszib.service.EmployeeService;
 
 import java.util.List;
 
@@ -13,26 +14,26 @@ import java.util.List;
 public class RestEmployeeController {
 
     @Autowired
-    private EmployeeDao employeeDao;
+    private EmployeeService employeeService;
 
     @GetMapping("employees")
     public List<Employee> employees() {
-        return employeeDao.getEmployees();
+        return employeeService.getEmployees();
     }
 
     @DeleteMapping("employees/remove/{id}")
     public void removeEmployee(@PathVariable Long id) {
-        employeeDao.removeEmployee(id);
+        employeeService.removeEmployee(id);
     }
 
     @PostMapping("employees/save")
     public void saveEmployee(@RequestBody Employee employee) {
-        employeeDao.saveEmployee(employee);
+        employeeService.saveEmployee(employee);
     }
 
     @GetMapping("employees/single/{id}")
     public Employee getEmployee(@PathVariable Long id) {
-        return employeeDao.getById(id);
+        return employeeService.getById(id);
     }
 
 }

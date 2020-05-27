@@ -2,11 +2,15 @@ package pl.edu.wszib.dao;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import pl.edu.wszib.domain.Employee;
+
+
 import java.util.List;
 
 
 @Repository
 public interface EmployeeDao extends CrudRepository<Employee, Long> {
+
+
 
     @Override
     List<Employee> findAll();
@@ -15,9 +19,9 @@ public interface EmployeeDao extends CrudRepository<Employee, Long> {
     List<Employee> findAllById(Iterable<Long> longs);
 
 
-
-    List<Employee> getEmployees();
-    void saveEmployee(Employee employee);
+/*To przenoszę do EmployeeService*/
+/*    List<Employee> getEmployees();
+   void saveEmployee(Employee employee);
     void removeEmployee(Long id);
-    Employee getById(Long id);
+    Employee getById(Long id);*/
 }
